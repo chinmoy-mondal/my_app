@@ -40,6 +40,7 @@ class RegistrationController extends Controller
     }
 
     public function view(Request $request){
+        $user = array();
         $search = $request['search'] ?? "";
         if($search != ""){
             $user = User::where('name','LIKE',"%$search%")->orwhere('phone','LIKE',"%$search%")->get();

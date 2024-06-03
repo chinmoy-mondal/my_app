@@ -18,7 +18,6 @@
     <ul class="nav navbar-nav">
       <li><a href="{{ url('/reg') }}">Registration</a></li>
       <li><a href="{{ url('/login') }}">Login</a></li>
-      <li><a href="{{ url('/reg/view') }}">Display</a></li>
     </ul>
   </div>
 </nav>

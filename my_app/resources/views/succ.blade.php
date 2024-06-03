@@ -22,17 +22,18 @@
 <div class="container">
   <h2>Login</h2>
     <div class="row">
-      <div class="col-sm-5">
+      <div class="col-sm-3" >
       <form action="">
-        <div class="form-group">
           <input type="search" name="search" id="" class="" value="{{$search}}">
-        </div>
         <button class="btn btn-primary">search</button>
-        <a href="{{ url('/reg/view') }}">
-          <button class="btn btn-primary">reset</button>
-        </a>
       </form>
-    </div>
+      </div>
+      <div class="col-sm-6">
+        
+      <a href="{{ url('/login') }}">
+        <button class="btn btn-danger">reset</button>
+      </a>
+      </div>
     </div>
     <table class="table">
       <thead>
@@ -43,18 +44,29 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($user as $us)
-        <tr>
-          <td>{{$us->name}}</td>
-          <td>{{$us->email}}</td>
-          <td>{{$us->phone}}</td>
-        </tr>         
-        @endforeach
+          <?php
+            foreach ($user as $us ) {
+              ?>
+                <tr>
+                  <td>{{$us->name}}</td>
+                  <td>{{$us->email}}</td>
+                  <td>{{$us->phone}}</td>
+                </tr>
+              <?php
+            }
+          ?>
 
+        
+        
       </tbody>
     </table>
     <div class="row">
-      {{ $user->links() }}
+      <?php
+        if(count($user)){
+          $user->links();
+        }
+        
+      ?>
     </div>
   </div>
   </body>
